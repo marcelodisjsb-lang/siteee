@@ -1,0 +1,32 @@
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Uma Surpresa</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <main>
+        <section id="primeira">
+            <h1>Oii clique aq</h1>
+            <button onclick="avancar()">Clique aqui</button>
+        </section>
+
+        <section id="segunda" class="escondida">
+            <h1>vc e mt chata</h1>
+        </section>
+    </main>
+
+    <script>
+        function avancar() {
+            document.getElementById("primeira").classList.add("escondida");
+            document.getElementById("segunda").classList.remove("escondida");
+        }
+    </script>
+
+</body>
+</html>
+
