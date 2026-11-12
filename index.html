@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Oii</title>
+    <title>Uma pergunta</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -16,17 +16,49 @@
         </section>
 
         <section id="segunda" class="escondida">
-            <h1>eu vou ai amanha se pa </h1>
+            <h1>se pa eu vou ai amanha, vc vai estar?</h1>
+
+            <div class="botoes">
+                <button onclick="responderSim()">SIM</button>
+                <button onclick="responderNao()">NÃO</button>
+            </div>
+        </section>
+
+        <section id="terceira" class="escondida">
+            <h1>chata</h1>
         </section>
     </main>
 
     <script>
         function avancar() {
-            document.getElementById("primeira").classList.add("escondida");
-            document.getElementById("segunda").classList.remove("escondida");
+            trocarTela("primeira", "segunda");
+        }
+
+        function responderNao() {
+            trocarTela("segunda", "terceira");
+        }
+
+        function responderSim() {
+            const numero = "55DDDNUMERO";
+            const mensagem = "SIM! Vou estar amanhã!";
+            const link = "https://wa.me/" + numero +
+                "?text=" + encodeURIComponent(mensagem);
+
+            window.open(link, "_blank");
+        }
+
+        function trocarTela(atual, proxima) {
+            document.getElementById(atual).classList.add("saindo");
+
+            setTimeout(() => {
+                document.getElementById(atual).classList.add("escondida");
+                document.getElementById(atual).classList.remove("saindo");
+
+                document.getElementById(proxima).classList.remove("escondida");
+                document.getElementById(proxima).classList.add("mostrar");
+            }, 400);
         }
     </script>
 
 </body>
 </html>
-
