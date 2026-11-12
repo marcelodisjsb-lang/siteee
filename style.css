@@ -5,50 +5,76 @@
     box-sizing: border-box;
 }
 
-html, body {
-    width: 100%;
-    min-height: 100%;
-    background-color: #ffffff;
-}
-
 body {
-    font-family: Arial, sans-serif;
+    background: #ffffff;
     color: #000000;
+    font-family: Arial, sans-serif;
 }
 
 main {
-    width: 100%;
     min-height: 100vh;
     display: flex;
     justify-content: center;
     align-items: center;
     text-align: center;
-    background-color: #ffffff;
+    padding: 25px;
 }
 
 h1 {
-    color: #000000;
-    font-size: 48px;
+    font-size: clamp(30px, 5vw, 48px);
     margin-bottom: 30px;
+    color: #000000;
+}
+
+.botoes {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
 }
 
 button {
-    background-color: #000000;
+    background: #000000;
     color: #ffffff;
     border: 2px solid #000000;
     padding: 15px 35px;
     font-size: 18px;
-    font-weight: bold;
-    border-radius: 5px;
+    border-radius: 8px;
     cursor: pointer;
     transition: 0.3s;
 }
 
 button:hover {
-    background-color: #ffffff;
+    background: #ffffff;
     color: #000000;
+    transform: scale(1.1);
 }
 
 .escondida {
     display: none;
+}
+
+.mostrar {
+    animation: entrada 0.8s ease forwards;
+}
+
+.saindo {
+    animation: saida 0.4s ease forwards;
+}
+
+@keyframes entrada {
+    from {
+        opacity: 0;
+        transform: translateY(35px) scale(0.8);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+@keyframes saida {
+    to {
+        opacity: 0;
+        transform: scale(0.8);
+    }
 }
